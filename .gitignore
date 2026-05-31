@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+AppData/
+.DS_Store
+.streamlit/credentials.toml
