@@ -367,6 +367,7 @@ def load_artifacts():
     return model, scaler, feature_names
 
 
+@st.cache_data(show_spinner=False)
 def load_presets():
     if not PRESETS_PATH.exists():
         return {}
@@ -595,6 +596,9 @@ def render_model_info(model, feature_names):
 
 
 def normalize_preset_values(raw_values, feature_names):
+    if isinstance(raw_values, dict) and isinstance(raw_values.get("features"), dict):
+        raw_values = raw_values["features"]
+
     if isinstance(raw_values, dict):
         return {
             feature_name: float(raw_values.get(feature_name, 0.0))

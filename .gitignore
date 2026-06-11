@@ -6,3 +6,6 @@ env/
 AppData/
 .DS_Store
 .streamlit/credentials.toml
+.streamlit/secrets.toml
+.ipynb_checkpoints/
+*.log
