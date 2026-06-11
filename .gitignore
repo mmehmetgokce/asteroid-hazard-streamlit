@@ -9,3 +9,4 @@ AppData/
 .streamlit/secrets.toml
 .ipynb_checkpoints/
 *.log
+.devcontainer/
