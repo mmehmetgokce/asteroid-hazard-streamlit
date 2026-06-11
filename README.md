@@ -38,10 +38,10 @@ Egitim/test ayrimi 80/20 olarak yapildi. Egitim verisinde SMOTE ile sinif dengel
 - `data/nasa.csv`: Modelleme ve hazir senaryo uretimi icin kullanilan NASA veri seti.
 - `notebooks/model_training.ipynb`: Veri analizi, model egitimi ve model karsilastirma not defteri.
 - `scripts/generate_asteroid_presets.py`: Veri setinden Streamlit hazir senaryolarini ureten script.
-- `xgboost_asteroid_model.pkl`: Egitilmis XGBoost modeli.
-- `asteroid_scaler.pkl`: Egitimde kullanilan scaler.
-- `feature_names.pkl`: Modelin bekledigi 20 ozellik sirasi.
-- `asteroid_presets.json`: Tum tehlikeli ve tehlikesiz asteroid kayitlarindan uretilen hazir senaryolar.
+- `models/xgboost_asteroid_model.pkl`: Egitilmis XGBoost modeli.
+- `models/asteroid_scaler.pkl`: Egitimde kullanilan scaler.
+- `models/feature_names.pkl`: Modelin bekledigi 20 ozellik sirasi.
+- `data/asteroid_presets.json`: Tum tehlikeli ve tehlikesiz asteroid kayitlarindan uretilen hazir senaryolar.
 - `assets/`: Arka plan, confusion matrix, ROC/PR egrileri ve oznitelik onemi gorselleri.
 - `docs/final_report.pdf`: Proje final raporu.
 - `docs/references.pdf`: Literatur kaynakcasi.

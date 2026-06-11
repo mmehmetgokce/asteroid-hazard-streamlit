@@ -10,10 +10,10 @@ import streamlit as st
 
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "xgboost_asteroid_model.pkl"
-SCALER_PATH = BASE_DIR / "asteroid_scaler.pkl"
-FEATURES_PATH = BASE_DIR / "feature_names.pkl"
-PRESETS_PATH = BASE_DIR / "asteroid_presets.json"
+MODEL_PATH = BASE_DIR / "models" / "xgboost_asteroid_model.pkl"
+SCALER_PATH = BASE_DIR / "models" / "asteroid_scaler.pkl"
+FEATURES_PATH = BASE_DIR / "models" / "feature_names.pkl"
+PRESETS_PATH = BASE_DIR / "data" / "asteroid_presets.json"
 BACKGROUND_PATH = BASE_DIR / "assets" / "asteroid_background.png"
 CONFUSION_MATRIX_IMAGE_PATH = BASE_DIR / "assets" / "xgboost_confusion_matrix.png"
 FEATURE_IMPORTANCE_IMAGE_PATH = BASE_DIR / "assets" / "feature_importance.png"

@@ -11,8 +11,8 @@ import pandas as pd
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_DATASET_PATH = BASE_DIR / "data" / "nasa.csv"
-DEFAULT_FEATURES_PATH = BASE_DIR / "feature_names.pkl"
-DEFAULT_OUTPUT_PATH = BASE_DIR / "asteroid_presets.json"
+DEFAULT_FEATURES_PATH = BASE_DIR / "models" / "feature_names.pkl"
+DEFAULT_OUTPUT_PATH = BASE_DIR / "data" / "asteroid_presets.json"
 
 
 def parse_args() -> argparse.Namespace:
@@ -29,13 +29,13 @@ def parse_args() -> argparse.Namespace:
         "--features",
         type=Path,
         default=DEFAULT_FEATURES_PATH,
-        help="Path to feature_names.pkl.",
+        help="Path to models/feature_names.pkl.",
     )
     parser.add_argument(
         "--output",
         type=Path,
         default=DEFAULT_OUTPUT_PATH,
-        help="Output JSON path. Default: asteroid_presets.json",
+        help="Output JSON path. Default: data/asteroid_presets.json",
     )
     return parser.parse_args()
 
