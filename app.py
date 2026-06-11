@@ -10,13 +10,13 @@ import streamlit as st
 
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "xgboost_asteroit_modeli.pkl"
-SCALER_PATH = BASE_DIR / "asteroit_scaler.pkl"
-FEATURES_PATH = BASE_DIR / "oznitelik_isimleri.pkl"
+MODEL_PATH = BASE_DIR / "xgboost_asteroid_model.pkl"
+SCALER_PATH = BASE_DIR / "asteroid_scaler.pkl"
+FEATURES_PATH = BASE_DIR / "feature_names.pkl"
 PRESETS_PATH = BASE_DIR / "asteroid_presets.json"
 BACKGROUND_PATH = BASE_DIR / "assets" / "asteroid_background.png"
 CONFUSION_MATRIX_IMAGE_PATH = BASE_DIR / "assets" / "cm_xgb.png"
-FEATURE_IMPORTANCE_IMAGE_PATH = BASE_DIR / "assets" / "oznitelik_onemi.png"
+FEATURE_IMPORTANCE_IMAGE_PATH = BASE_DIR / "assets" / "feature_importance.png"
 
 
 FEATURE_METADATA = {
@@ -103,8 +103,10 @@ FEATURE_METADATA = {
 }
 
 
-DATA_SOURCE_TEXT = "NASA JPL NeoWs API"
-DATA_SOURCE_URL = "https://cneos.jpl.nasa.gov/"
+DATASET_SOURCE_TEXT = "Kaggle - NASA Asteroids Classification"
+DATASET_SOURCE_URL = "https://www.kaggle.com/datasets/shrutimehta/nasa-asteroids-classification"
+NASA_SOURCE_TEXT = "NASA CNEOS / JPL"
+NASA_SOURCE_URL = "https://cneos.jpl.nasa.gov/"
 MODEL_METRICS = {
     "Model": "XGBoost Classifier",
     "Özellik sayısı": "20",
@@ -368,7 +370,7 @@ def load_artifacts():
 
 
 @st.cache_data(show_spinner=False)
-def load_presets():
+def load_presets(presets_mtime):
     if not PRESETS_PATH.exists():
         return {}
 
@@ -515,7 +517,8 @@ def render_model_info(model, feature_names):
         f"""
         <div class="glass-panel">
             <div class="preset-title">🛰️ Kaynak ve sistem bilgisi</div>
-            <div class="meta-line"><strong>Veri kaynağı:</strong> <a href="{DATA_SOURCE_URL}" target="_blank">{DATA_SOURCE_TEXT}</a></div>
+            <div class="meta-line"><strong>Veri seti:</strong> <a href="{DATASET_SOURCE_URL}" target="_blank">{DATASET_SOURCE_TEXT}</a></div>
+            <div class="meta-line"><strong>Kurumsal kaynak:</strong> <a href="{NASA_SOURCE_URL}" target="_blank">{NASA_SOURCE_TEXT}</a></div>
             <div class="meta-line"><strong>Sistem zamanı:</strong> {now_text}</div>
             <div class="meta-line"><strong>Model nesnesi:</strong> {model_name}</div>
             <div class="meta-line"><strong>Sınıflar:</strong> {classes}</div>
@@ -675,7 +678,8 @@ def render_preset_loader(label, preset_names, presets, feature_names):
 
 
 def render_preset_panel(feature_names):
-    presets = load_presets()
+    presets_mtime = PRESETS_PATH.stat().st_mtime if PRESETS_PATH.exists() else None
+    presets = load_presets(presets_mtime)
 
     with st.container(border=True):
         st.markdown('<div class="preset-title">🚀 Hazır asteroit seçimi</div>', unsafe_allow_html=True)
