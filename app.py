@@ -15,7 +15,7 @@ SCALER_PATH = BASE_DIR / "asteroid_scaler.pkl"
 FEATURES_PATH = BASE_DIR / "feature_names.pkl"
 PRESETS_PATH = BASE_DIR / "asteroid_presets.json"
 BACKGROUND_PATH = BASE_DIR / "assets" / "asteroid_background.png"
-CONFUSION_MATRIX_IMAGE_PATH = BASE_DIR / "assets" / "cm_xgb.png"
+CONFUSION_MATRIX_IMAGE_PATH = BASE_DIR / "assets" / "xgboost_confusion_matrix.png"
 FEATURE_IMPORTANCE_IMAGE_PATH = BASE_DIR / "assets" / "feature_importance.png"
 
 
