@@ -34,6 +34,7 @@ Egitim/test ayrimi 80/20 olarak yapildi. Egitim verisinde SMOTE ile sinif dengel
 
 - `app.py`: Streamlit arayuzu ve tahmin akisi.
 - `requirements.txt`: Gerekli Python paketleri.
+- `requirements-dev.txt`: Notebook ve grafik uretimi icin ek gelistirme paketleri.
 - `data/nasa.csv`: Modelleme ve hazir senaryo uretimi icin kullanilan NASA veri seti.
 - `notebooks/model_training.ipynb`: Veri analizi, model egitimi ve model karsilastirma not defteri.
 - `scripts/generate_asteroid_presets.py`: Veri setinden Streamlit hazir senaryolarini ureten script.
@@ -41,10 +42,19 @@ Egitim/test ayrimi 80/20 olarak yapildi. Egitim verisinde SMOTE ile sinif dengel
 - `asteroid_scaler.pkl`: Egitimde kullanilan scaler.
 - `feature_names.pkl`: Modelin bekledigi 20 ozellik sirasi.
 - `asteroid_presets.json`: Tum tehlikeli ve tehlikesiz asteroid kayitlarindan uretilen hazir senaryolar.
-- `assets/`: Arka plan, confusion matrix ve oznitelik onemi gorselleri.
+- `assets/`: Arka plan, confusion matrix, ROC/PR egrileri ve oznitelik onemi gorselleri.
 - `docs/final_report.pdf`: Proje final raporu.
 - `docs/references.pdf`: Literatur kaynakcasi.
 - `docs/literature_review_table.xlsx`: Literatur taramasi cizelgesi.
+
+## Analiz Gorselleri
+
+- `assets/feature_importance.png`
+- `assets/xgboost_confusion_matrix.png`
+- `assets/logistic_regression_confusion_matrix.png`
+- `assets/random_forest_confusion_matrix.png`
+- `assets/roc_curve_comparison.png`
+- `assets/precision_recall_curve_comparison.png`
 
 ## Presetleri Yeniden Uretme
 
@@ -57,4 +67,10 @@ python scripts/generate_asteroid_presets.py --dataset data/nasa.csv
 ```powershell
 python -m pip install -r requirements.txt
 python -m streamlit run app.py
+```
+
+Notebook'u calistirmak ve analiz gorsellerini yeniden uretmek icin:
+
+```powershell
+python -m pip install -r requirements-dev.txt
 ```
